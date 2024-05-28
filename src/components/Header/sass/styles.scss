@@ -1,0 +1,75 @@
+.store-header-container {
+    width: 100%;
+    height: 6.5rem;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    padding: 0 1rem;
+    z-index: 1000;
+  
+    .store-info {
+      display: flex;
+      align-items: center;
+  
+      .store-logo {
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+      }
+  
+      .store-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  
+    .search-bar {
+      flex-grow: 1;
+      margin: 0 1rem;
+  
+      .form-control {
+        border-right: 0;
+      }
+  
+      .btn {
+        border-left: 0;
+        border-color: #dee2e6;
+
+        &:hover {
+            border-color: #dee2e6 !important;
+            box-shadow: none !important; 
+            background-color: none !important;
+        }
+
+        &:focus {
+            border-color: #dee2e6;
+            box-shadow: none !important;
+            background-color: none !important;
+          }
+      }
+    }
+  
+    .cart-button {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .custom-form-control {
+      &:hover {
+        border-color: #dee2e6;
+        box-shadow: none;
+      }
+  
+      &:focus {
+        border-color: #dee2e6;
+        box-shadow: none;
+      }
+    }
+  }
