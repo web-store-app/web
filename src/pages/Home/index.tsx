@@ -1,10 +1,9 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 export function Home () {
     return (
         <>
-            <Container>
-                <Row className="mt-5">
+            <Row className="mt-5">
                     <Col>
                     <h1>Bem-vindo ao Serviço de Entrega!</h1>
                     <p>Encontre os melhores restaurantes e pratos para entrega.</p>
@@ -15,8 +14,7 @@ export function Home () {
                     <h2>Algumas opções populares</h2>
                     {}
                     </Col>
-                </Row>
-            </Container>
+            </Row>
         </>
     );
 }

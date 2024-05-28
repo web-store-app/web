@@ -22,3 +22,7 @@ body {
   bottom: 0;
   width: 100%;
 }
+
+.white-smoke-bg {
+  background-color: #f8f9fa;
+}
