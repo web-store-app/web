@@ -1,7 +1,8 @@
 import { Form, Button, Image, InputGroup, Container } from 'react-bootstrap';
-import { Search, Cart } from 'react-bootstrap-icons';
 import Logo from '../../assets/Steak.jpg';
 import "./sass/styles.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 export default function StoreHeader() {
     return (
@@ -21,12 +22,12 @@ export default function StoreHeader() {
                         className="custom-form-control"
                         />
                     <Button variant="outline-secondary" id="search-button" >
-                        <Search />
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Button>
                     </InputGroup>
 
                     <Button variant="outline-secondary" className="cart-button">
-                        <Cart size={20} />
+                        <FontAwesomeIcon icon={faCartShopping} />
                     </Button>
                 </div>
             </Container>
