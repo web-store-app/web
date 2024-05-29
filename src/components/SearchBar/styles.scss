@@ -1,0 +1,16 @@
+.search-bar .form-control:focus,
+.search-bar .form-control:hover {
+  border-color: #ced4da; 
+  box-shadow: none; 
+}
+
+.search-bar .btn-outline-secondary {
+  background-color: #fff; 
+  color: #495057; 
+  border-color: #ced4da; 
+
+  &:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da; 
+  }
+}
