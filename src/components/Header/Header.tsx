@@ -9,10 +9,11 @@ function Header() {
 
       <Container>
         <Navbar bg="light" data-bs-theme="light">
-          <Nav className="me-auto">
+          <Nav className="me-auto fw-bold">
               <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-              <Nav.Link as={Link} to="/Ofertas">Ofertas</Nav.Link>
-              <Nav.Link as={Link} to="/FaleConosco">Fale conosco</Nav.Link>
+              <Nav.Link as={Link} to="/categorias">Categorias</Nav.Link>
+              <Nav.Link as={Link} to="/ofertas">Ofertas</Nav.Link>
+              <Nav.Link as={Link} to="/fale-conosco">Fale conosco</Nav.Link>
             </Nav>
         </Navbar>
     </Container>

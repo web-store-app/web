@@ -8,7 +8,7 @@ export default function Router () {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ofertas" element={<Offers />} />
-          <Route path="/FaleConosco" element={<Contact />} />
+          <Route path="/fale-conosco" element={<Contact />} />
         </Routes>
       );
 }
