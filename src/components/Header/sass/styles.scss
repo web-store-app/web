@@ -1,74 +1,33 @@
 .store-header-container {
-    width: 100%;
-    height: 6.5rem;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    position: sticky;
-    top: 0;
-    background-color: #f8f9fa;
-    padding: 0 1rem;
-    z-index: 1000;
-  
-    .store-info {
-      display: flex;
-      align-items: center;
-  
-      .store-logo {
-        width: 70px;
-        height: 70px;
-        margin-right: 10px;
-      }
-  
-      .store-name {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-    }
-  
-    .search-bar {
-      flex-grow: 1;
-      margin: 0 1rem;
-  
-      .form-control {
-        border-right: 0;
-      }
-  
-      .btn {
-        border-left: 0;
-        border-color: #dee2e6;
+  height: 6.5rem;
+  padding: 0 1rem;
+  z-index: 1000;
 
-        &:hover {
-            border-color: #dee2e6 !important;
-            box-shadow: none !important; 
-            background-color: none !important;
-        }
+  .store-logo {
+    width: 70px;
+    height: 70px;
+  }
 
-        &:focus {
-            border-color: #dee2e6;
-            box-shadow: none !important;
-            background-color: none !important;
-          }
-      }
-    }
-  
-    .cart-button {
-      background: none;
-      border: none;
-      display: flex;
+  .store-name {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    max-width: 150px;
+  }
+
+  .cart-button {
+    background: none;
+    border: none;
+
+    >span {
+      position: absolute;
+      top: calc(-1rem / 22);
+      right: calc(-1rem / 22);
+      font-size: 10px;
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
       align-items: center;
       justify-content: center;
-    }
-  
-    .custom-form-control {
-      &:hover {
-        border-color: #dee2e6;
-        box-shadow: none;
-      }
-  
-      &:focus {
-        border-color: #dee2e6;
-        box-shadow: none;
-      }
-    }
   }
+  }
+}
