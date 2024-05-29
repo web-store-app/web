@@ -10,7 +10,7 @@ const httpClient = axios.create({
     }
 })
 
-export const getProducts = async () : Promise<Product[] | null> => {
+export const getProducts = async () : Promise<Product[]> => {
     try
     {
         const res = await httpClient.get<Product[]>('products')
