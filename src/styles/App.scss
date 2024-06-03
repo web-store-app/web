@@ -1,11 +1,14 @@
+
+@import "./custom.scss";
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #ffff;
+  //color-scheme: light dark;
+  //color: rgba(255, 255, 255, 0.87);
+  //background-color: #ffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,11 +21,15 @@ body {
 }
 
 .footer {
-  position: fixed;
+  /*position: fixed;*/
   bottom: 0;
   width: 100%;
 }
 
 .white-smoke-bg {
   background-color: #f8f9fa;
+}
+
+.content {
+  min-height: calc(110vh - 70px);
 }

@@ -1,6 +1,23 @@
 export interface Product {
     id: number,
-    storeId: number,
+    CategoryId: number,
     name: string,
-    quantity: number | null
+    quantityAvailable: number | null,
+    price: number,
+    description: string,
+    image: string
+}
+
+export interface Category {
+  id: number;
+  name: string;
+  products: Product[];
+}
+
+export interface Store {
+  id: number;
+  name: string;
+  logo: string;
+  subdomain: string;
+ // categories: Category[];
 }
