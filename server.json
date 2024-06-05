@@ -1,35 +1,101 @@
 {
-    "store": 
-      { "id": 1, "name": "Loja teste", "logo": "./src/assets/Steak.jpg", "subdomain": "lojateste" }
-    ,
-    "category": [
+  "store": {
+    "id": 1,
+    "name": "Loja teste",
+    "logo": "./src/assets/Steak.jpg",
+    "subdomain": "lojateste",
+    "categories": [
       {
         "id": 1,
         "name": "Bebidas",
-        "storeId": 1
+        "storeId": 1,
+        "products": [
+          {
+            "id": 1,
+            "name": "Coca-Cola",
+            "price": 11.50,
+            "description": "Refrigerante coca cola 2 Litros",
+            "categoryId": 1
+          },
+          {
+            "id": 2,
+            "name": "Pepsi",
+            "price": 10.90,
+            "description": "Refrigerante pepsi 2 Litros",
+            "categoryId": 1
+          }
+        ]
       },
       {
         "id": 2,
         "name": "Snacks",
-        "storeId": 1
+        "storeId": 1,
+        "products": [
+          {
+            "id": 3,
+            "name": "Batata Chips",
+            "price": 6.90,
+            "description": "Batata chips 900g",
+            "categoryId": 2
+          },
+          {
+            "id": 4,
+            "name": "Amendoim",
+            "price": 7.50,
+            "description": "Amendoim japonês tradicional 200g",
+            "categoryId": 2
+          }
+        ]
       },
       {
         "id": 3,
         "name": "Doces",
-        "storeId": 1
+        "storeId": 1,
+        "products": [
+          {
+            "id": 5,
+            "name": "Bombom",
+            "price": 2.90,
+            "description": "Bombom garoto serenata do amor",
+            "categoryId": 3
+          },
+          {
+            "id": 6,
+            "name": "Bala fini dentadura",
+            "price": 7.50,
+            "description": "Bala fini dentaduro pacote 25g",
+            "categoryId": 3
+          },
+          {
+            "id": 7,
+            "name": "Bombom",
+            "price": 2.90,
+            "description": "Bombom garoto serenata do amor",
+            "categoryId": 3
+          },
+          {
+            "id": 8,
+            "name": "Bala fini dentadura",
+            "price": 7.50,
+            "description": "Bala fini dentaduro pacote 25g",
+            "categoryId": 3
+          },
+          {
+            "id": 9,
+            "name": "Bombom",
+            "price": 2.90,
+            "description": "Bombom garoto serenata do amor",
+            "categoryId": 3
+          },
+          {
+            "id": 10,
+            "name": "Bala fini dentadura",
+            "price": 7.50,
+            "description": "Bala fini dentaduro pacote 25g",
+            "categoryId": 3
+          }
+        ]
       }
-    ],
-    "product": [
-      { "id": 1, "name": "Coca-Cola", "price": 11.50, "description": "Refrigerante coca cola 2 Litros", "categoryId": 1 },
-      { "id": 2, "name": "Pepsi", "price": 10.90, "description": "Refrigerante pepsi 2 Litros", "categoryId": 1 },
-      { "id": 3, "name": "Batata Chips", "price": 6.90, "description": "Batata chips 900g", "categoryId": 2 },
-      { "id": 4, "name": "Amendoim", "price": 7.50, "description": "Amendoim japonês tradicional 200g", "categoryId": 2 },
-      { "id": 5, "name": "Bombom", "price": 2.90, "description": "Bombom garoto serenata do amor", "categoryId": 3 },
-      { "id": 6, "name": "Bala fini dentadura", "price": 7.50, "description": "Bala fini dentaduro pacote 25g", "categoryId": 3 },
-      { "id": 7, "name": "Bombom", "price": 2.90, "description": "Bombom garoto serenata do amor", "categoryId": 3 },
-      { "id": 8, "name": "Bala fini dentadura", "price": 7.50, "description": "Bala fini dentaduro pacote 25g", "categoryId": 3 },
-      { "id": 9, "name": "Bombom", "price": 2.90, "description": "Bombom garoto serenata do amor", "categoryId": 3 },
-      { "id": 10, "name": "Bala fini dentadura", "price": 7.50, "description": "Bala fini dentaduro pacote 25g", "categoryId": 3 }
     ]
   }
-  
+}

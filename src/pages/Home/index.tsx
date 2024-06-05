@@ -1,65 +1,27 @@
-import { Row, Col, Tabs, Tab } from 'react-bootstrap';
-import { Category, Product } from '../../shared/types/types';
+import { useEffect, useMemo, useState } from 'react';
+import { Col, Row, Tab, Tabs } from 'react-bootstrap';
+import useStore from '../../hooks/useStore';
 import ProductCard from '../../components/ProductCard';
-import { useEffect, useState } from 'react';
-import Paginate from '../../components/Paginate';
-
-const categoryList: Category[] = [
-    {
-        id: 1,
-        name: "Bebidas",
-        products: [
-            { id: 1, name: "Coca-Cola", price: 11.50, description: "Refrigerante coca cola 2 Litros", image:"", CategoryId:1, quantityAvailable:10 },
-            { id: 2, name: "Pepsi", price: 10.90, description: "Refrigerante pepsi 2 Litros", image:"", CategoryId:1, quantityAvailable:10 },
-        ]
-    },
-    {
-        id: 2,
-        name: "Snacks",
-        products: [
-            { id: 3, name: "Batata Chips", price: 6.90, description: "Batata chips 900g", image:"", CategoryId:2, quantityAvailable:10 },
-            { id: 4, name: "Amendoim", price: 7.50, description: "Amendoim japonês tradicional 200g", image:"", CategoryId:2, quantityAvailable:10 },
-        ]
-    },
-    {
-        id: 3,
-        name: "Doces",
-        products: [
-            { id: 5, name: "Bombom", price: 2.90, description: "Bombom garoto serenata do amor", image:"", CategoryId:3, quantityAvailable:10 },
-            { id: 6, name: "Bala fini dentadura", price: 7.50, description: "Bala fini dentaduro pacote 25g", image:"", CategoryId:3, quantityAvailable:10 },
-            { id: 7, name: "Bombom", price: 2.90, description: "Bombom garoto serenata do amor", image:"", CategoryId:3, quantityAvailable:10 },
-            { id: 8, name: "Bala fini dentadura", price: 7.50, description: "Bala fini dentaduro pacote 25g", image:"", CategoryId:3, quantityAvailable:10 },
-            { id: 9, name: "Bombom", price: 2.90, description: "Bombom garoto serenata do amor", image:"", CategoryId:3, quantityAvailable:10 },
-            { id: 10, name: "Bala fini dentadura", price: 7.50, description: "Bala fini dentaduro pacote 25g", image:"", CategoryId:3, quantityAvailable:10 },
-        ]
-    }
-];
+import { Product } from '../../shared/types/types';
 
 export function Home() {
-    const [activeKey, setActiveKey] = useState('Tudo');
-    const [currentPage, setCurrentPage] = useState<number>(1);
+    const { categories } = useStore();
+    const [activeKey, setActiveKey] = useState<string>('Tudo');
     const [currentCards, setCurrentCards] = useState<Product[]>([]);
 
-    const itemsPerPage = 3;
-    const totalCards = currentCards.length;
-
-    const handlePageChange = (pageNumber: number) => {
-        setCurrentPage(pageNumber);
-    };
+    const categoriesName = useMemo(() => categories.map(category => category.name), [categories]);
+    const categoriesList = useMemo(() => ["Tudo", ...categoriesName], [categoriesName]);
 
     useEffect(() => {
-        if (activeKey === 'Tudo') {
-            setCurrentCards(
-                categoryList.flatMap(category => category.products)
-            );
-        } else {
-            const categoriaSelecionada = categoryList.find(
-                category => category.name === activeKey
-            );
-            setCurrentCards(categoriaSelecionada ? categoriaSelecionada.products : []);
+        if (categories.length > 0) {
+            if (activeKey === 'Tudo') {
+                setCurrentCards(categories.flatMap(category => category.products));
+            } else {
+                const selectedCategory = categories.find(category => category.name === activeKey);
+                setCurrentCards(selectedCategory ? selectedCategory.products : []);
+            }
         }
-        setCurrentPage(1);
-    }, [activeKey]);
+    }, [activeKey, categories]);
 
     return (
         <div className="content mt-5">
@@ -69,27 +31,15 @@ export function Home() {
             <Row>
                 <Col md={12}>
                     <Tabs
-                        defaultActiveKey="Tudo"
-                        id="category-tabs"
-                        onSelect={(key) => setActiveKey(key)}
+                        activeKey={activeKey}
+                        onSelect={(key) => setActiveKey(key || 'Tudo')}
                         className="mb-5 justify-content-center"
                         variant="underline"
                     >
-                        <Tab eventKey="Tudo" title="Tudo">
-                            <Row>
-                                {categoryList.flatMap((category) =>
-                                    category.products.map((product) => (
-                                        <Col md={6} key={product.id} className="d-flex justify-content-center">
-                                            <ProductCard product={product} style={{ width: '40rem', marginBottom: "1rem" }} />
-                                        </Col>
-                                    ))
-                                )}
-                            </Row>
-                        </Tab>
-                        {categoryList.map((category) => (
-                            <Tab eventKey={category.name} title={category.name} key={category.id}>
+                        {categoriesList.map((category, index) => (
+                            <Tab eventKey={category} title={category} key={category + index}>
                                 <Row className="d-flex justify-content-center">
-                                    {category.products.map((product) => (
+                                    {currentCards.map((product) => (
                                         <Col md={6} key={product.id} className="d-flex justify-content-center">
                                             <ProductCard product={product} style={{ width: '40rem', marginBottom: "1rem" }} />
                                         </Col>
@@ -98,14 +48,6 @@ export function Home() {
                             </Tab>
                         ))}
                     </Tabs>
-                    {totalCards > itemsPerPage && (
-                        <Paginate
-                            totalItems={totalCards}
-                            itemsPerPage={itemsPerPage}
-                            currentPage={currentPage}
-                            onPageChange={handlePageChange}
-                        />)
-                    }
                 </Col>
             </Row>
         </div>

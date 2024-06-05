@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useStoreContext } from '../contexts/StoreContext';
 
 const useStore = () => {
-  const { store } = useStoreContext();
-  return {store};
+  const { store, categories } = useStoreContext();
+  return {store, categories};
 };
 
 export default useStore;

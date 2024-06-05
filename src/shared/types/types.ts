@@ -11,6 +11,7 @@ export interface Product {
 export interface Category {
   id: number;
   name: string;
+  storeId: number;
   products: Product[];
 }
 
@@ -19,5 +20,5 @@ export interface Store {
   name: string;
   logo: string;
   subdomain: string;
- // categories: Category[];
+  categories: Category[];
 }
