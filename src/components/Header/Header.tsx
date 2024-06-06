@@ -13,21 +13,6 @@ function Header() {
     <div className='white-smoke-bg'>
       <Container className="py-4 sticky-top white-smoke-bg">
         <Row className="align-items-center">
-          <Col xs={8} md={8} className="d-md-none order-1">
-            <Navbar bg="light" variant="light" expand="sm">
-              <Container className="p-0">
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                  <Nav className="me-auto fw-bold">
-                    <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-                    <Nav.Link as={Link} to="/ofertas">Ofertas</Nav.Link>
-                    <Nav.Link as={Link} to="/fale-conosco">Fale conosco</Nav.Link>
-                  </Nav>
-                </Navbar.Collapse>
-              </Container>
-            </Navbar>
-          </Col>
-
           <Col xs={12} className="order-3 d-md-none">
             <hr />
           </Col>
@@ -50,7 +35,7 @@ function Header() {
             <SearchBar />
           </Col>
 
-          <Col xs={12} md={8} className="d-none d-md-flex order-md-3">
+          <Col xs={8} md={8} className="d-md-flex order-md-3 order-sm-1">
             <Navbar bg="light" variant="light" expand="sm">
               <Container className="p-0">
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
