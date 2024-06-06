@@ -32,7 +32,7 @@ function Header() {
             <hr />
           </Col>
 
-          <Col xs={4} md={2} className="order-md-3 d-flex justify-content-end order-2">
+          <Col xs={4} md={2} className="order-md-3 d-flex justify-content-end align-items-center order-2">
             <Button variant="outline-secondary" className="cart-button p-2 position-absolute border-0">
               <span className="text-bg-primary text-light">{10}</span>
               <FontAwesomeIcon icon={faCartShopping} size="2x" />
