@@ -1,20 +1,20 @@
+import { faCopyright } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <>
-        <footer className="bg-dark text-light py-3 mt-auto footer">
+      <footer className="bg-dark text-light py-3 mt-auto footer">
         <Container>
-            <Row>
+          <Row>
             <Col>
-                <p>© 2024 Shop Whatsapp</p>
+              <p><FontAwesomeIcon icon={faCopyright} />  {currentYear} Shop Whatsapp</p>
             </Col>
-            <Col className="text-end">
-                <p>Alguma coisa aqui</p>
-            </Col>
-            </Row>
+          </Row>
         </Container>
-        </footer>
+      </footer>
     </>
   );
 }
