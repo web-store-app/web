@@ -5,7 +5,7 @@ import ProductCard from '../../components/ProductCard';
 import { Product } from '../../shared/types/types';
 
 export function Home() {
-    const { categories } = useStore();
+    const { categories, searchTerm } = useStore();
     const [activeKey, setActiveKey] = useState<string>('Tudo');
     const [currentCards, setCurrentCards] = useState<Product[]>([]);
 
@@ -14,14 +14,20 @@ export function Home() {
 
     useEffect(() => {
         if (categories.length > 0) {
-            if (activeKey === 'Tudo') {
-                setCurrentCards(categories.flatMap(category => category.products));
-            } else {
+            let filteredProducts = categories.flatMap(category => category.products);
+            if (activeKey !== 'Tudo') {
                 const selectedCategory = categories.find(category => category.name === activeKey);
-                setCurrentCards(selectedCategory ? selectedCategory.products : []);
+                filteredProducts = selectedCategory ? selectedCategory.products : [];
             }
+            
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product =>
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+            setCurrentCards(filteredProducts);
         }
-    }, [activeKey, categories]);
+    }, [activeKey, categories, searchTerm]);
 
     return (
         <div className="content mt-5">

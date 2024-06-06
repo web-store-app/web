@@ -6,7 +6,9 @@ import { getSubdomain } from '../utils/getSubdomain';
 
 interface StoreContextType {
   store: Store | null,
-  categories: Category[]
+  categories: Category[],
+  searchTerm: string,
+  updateSearchTerm: (term: string) => void
 }
 
 interface ContextProviderProps {
@@ -25,7 +27,8 @@ export const useStoreContext = () => {
 
 export function StoreContextProvider ({ children }: ContextProviderProps) {
   const [store, setStore] = useState<Store | null>(null);
-  const [categories, setCategories] = useState<Category[]>([])
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const storeDomain = getSubdomain();
@@ -39,8 +42,12 @@ export function StoreContextProvider ({ children }: ContextProviderProps) {
       });
   }, []);
 
+  const updateSearchTerm = (term: string) => {
+    setSearchTerm(term);
+  };
+
   return (
-    <StoreContext.Provider value={{store, categories}}>
+    <StoreContext.Provider value={{store, categories, searchTerm, updateSearchTerm}}>
       {children}
     </StoreContext.Provider>
   );

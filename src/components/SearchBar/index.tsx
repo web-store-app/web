@@ -3,8 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Container, Form, FormControl, InputGroup, Row } from "react-bootstrap";
 
 import "./styles.scss";
+import useStore from "../../hooks/useStore";
 
 export default function SearchBar() {
+    const { updateSearchTerm } = useStore();
+
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        updateSearchTerm(event.target.value);
+    };
     return (
         <>
             <Container>
@@ -17,6 +23,7 @@ export default function SearchBar() {
                                     placeholder="Pesquisar..."
                                     aria-label="Pesquisar"
                                     className="form-control-sm"
+                                    onChange={handleSearch}
                                 />
                                 <Button variant="outline-secondary">
                                     <FontAwesomeIcon icon={faMagnifyingGlass} />
