@@ -15,6 +15,7 @@
             "name": "Coca-Cola",
             "price": 11.50,
             "description": "Refrigerante coca cola 2 Litros",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 1
           },
           {
@@ -22,6 +23,7 @@
             "name": "Pepsi",
             "price": 10.90,
             "description": "Refrigerante pepsi 2 Litros",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 1
           }
         ]
@@ -36,6 +38,7 @@
             "name": "Batata Chips",
             "price": 6.90,
             "description": "Batata chips 900g",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 2
           },
           {
@@ -43,6 +46,7 @@
             "name": "Amendoim",
             "price": 7.50,
             "description": "Amendoim japonês tradicional 200g",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 2
           }
         ]
@@ -57,6 +61,7 @@
             "name": "Bombom",
             "price": 2.90,
             "description": "Bombom garoto serenata do amor",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 3
           },
           {
@@ -64,6 +69,7 @@
             "name": "Bala fini dentadura",
             "price": 7.50,
             "description": "Bala fini dentaduro pacote 25g",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 3
           },
           {
@@ -71,6 +77,7 @@
             "name": "Bombom",
             "price": 2.90,
             "description": "Bombom garoto serenata do amor",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 3
           },
           {
@@ -78,6 +85,7 @@
             "name": "Bala fini dentadura",
             "price": 7.50,
             "description": "Bala fini dentaduro pacote 25g",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 3
           },
           {
@@ -85,6 +93,7 @@
             "name": "Bombom",
             "price": 2.90,
             "description": "Bombom garoto serenata do amor",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 3
           },
           {
@@ -92,6 +101,7 @@
             "name": "Bala fini dentadura",
             "price": 7.50,
             "description": "Bala fini dentaduro pacote 25g",
+            "image": "./src/assets/Steak.jpg",
             "categoryId": 3
           }
         ]

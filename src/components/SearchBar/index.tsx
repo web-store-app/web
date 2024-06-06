@@ -16,7 +16,7 @@ export default function SearchBar() {
                                     type="search"
                                     placeholder="Pesquisar..."
                                     aria-label="Pesquisar"
-                                    className="form-control-lg"
+                                    className="form-control-sm"
                                 />
                                 <Button variant="outline-secondary">
                                     <FontAwesomeIcon icon={faMagnifyingGlass} />

@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
         <StoreContextProvider>
           <Header />
-          <Container>
+          <Container className='min-vh-100'>
             <Router />
           </Container>
           <Footer />

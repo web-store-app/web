@@ -1,5 +1,17 @@
-.product-card-quantity{
-    width: 7.5rem;
-    justify-content: right;
-    align-items: right;
-}
+.card-image {
+    width: 100%;
+    max-width: 90px;
+    height: auto;
+    margin: 1px;
+    > img {
+        border-radius: calc(0.60rem - 1px);
+    }
+  }
+
+  .truncated-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
