@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useStoreContext } from '../contexts/StoreContext';
 
 const useStore = () => {
