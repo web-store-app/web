@@ -1,0 +1,9 @@
+.card-cart-image {
+    width: 50%;
+    max-width: 90px;
+    height: auto;
+    margin: 3px;
+    > img {
+        border-radius: calc(0.60rem - 1px);
+    }
+  }

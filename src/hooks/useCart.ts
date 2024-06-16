@@ -1,7 +1,7 @@
 import { useCartContext } from '../contexts/CartContext';
 
 const useCart = () => {
-  const { cartItems, cartQuantity, cartItemsTotal, addProductToCart, changeCartItemQuantity, removeCartItem, cleanCart } = useCartContext();
+  const { cartItems, cartQuantity, cartItemsTotal, addProductToCart, changeCartItemQuantity, removeCartItem, cleanCart,updateObservation } = useCartContext();
   
   return { 
     cartItems, 
@@ -10,7 +10,8 @@ const useCart = () => {
     addProductToCart, 
     changeCartItemQuantity, 
     removeCartItem, 
-    cleanCart 
+    cleanCart,
+    updateObservation 
   };
 };
 

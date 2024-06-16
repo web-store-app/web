@@ -15,10 +15,7 @@ function App() {
     <BrowserRouter>
       <StoreContextProvider>
         <CartContextProvider>
-          <Header />
-          <Container className='min-vh-100'>
-            <Router />
-          </Container>
+          <Router />
           <Footer />
         </CartContextProvider>
       </StoreContextProvider>

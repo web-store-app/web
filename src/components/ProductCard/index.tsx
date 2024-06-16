@@ -10,7 +10,7 @@ interface ProductProps {
     style?: React.CSSProperties;
 }
 
-export function ProductCard({ product, style }: ProductProps) {
+function ProductCard({ product, style }: ProductProps) {
     const [showModal, setShowModal] = useState<boolean>(false);
     const formattedPrice = formatMoney(product.price);
 
@@ -30,7 +30,6 @@ export function ProductCard({ product, style }: ProductProps) {
                         <Card.Title>{product.name}</Card.Title>
                         <Card.Text className="truncated-text">
                             {product.description}
-                            asjdhakdga bdkasbdkasb dkhasbdkhbasjhkd bakdbla dkabsdhkab kjldbaskdb ljadbkhabdkj abdkab dkbakjdbakj dbkjabd kabd kjadkjab kdbakd bakjb kabdkasbd ka
                         </Card.Text>
                         <Card.Text>
                             <span className="fw-bold">

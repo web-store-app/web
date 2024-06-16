@@ -1,5 +1,5 @@
-import { Button, Col, Container, Nav, Navbar, Row, Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import useStore from '../../hooks/useStore';
 import SearchBar from '../SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,10 +7,17 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 import "./sass/styles.scss";
 import useCart from '../../hooks/useCart';
+import StoreLogo from '../StoreLogo';
 
 function Header() {
   const { store } = useStore();
   const { cartQuantity } = useCart();
+  const navigate = useNavigate();
+  
+  const handleGoToCart = () => {
+    navigate("/complete-order");
+  }
+  
   return (
     <header className='white-smoke-bg'>
       <Container className="py-4 sticky-top white-smoke-bg">
@@ -20,7 +27,11 @@ function Header() {
           </Col>
 
           <Col xs={4} md={2} className="order-md-3 d-flex justify-content-end align-items-center order-2">
-            <Button variant="outline-secondary" className="cart-button p-2 position-absolute border-0">
+            <Button 
+              variant="outline-secondary" 
+              className="cart-button p-2 position-absolute border-0"
+              onClick={handleGoToCart}>
+
               {cartQuantity > 0 &&
                 <span className="text-bg-primary text-light fw-bold">{cartQuantity}</span>
               }
@@ -30,7 +41,7 @@ function Header() {
 
           <Col xs={12} md={4} className="text-center text-md-start mb-3 mb-md-0 order-3 order-md-1">
             <div className="store-info d-flex align-items-center justify-content-center justify-content-md-start">
-              <Image src={store?.logo} roundedCircle className="store-logo me-3" />
+              <StoreLogo logo={store?.logo} />
               <span className="store-name fs-4 fw-bold">{store?.name}</span>
             </div>
           </Col>

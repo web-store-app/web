@@ -5,6 +5,7 @@ import useStore from "../hooks/useStore";
 
 export interface CartItem extends Product {
   quantity: number;
+  observation?: string;
 }
 
 interface CartContextType {
@@ -18,6 +19,7 @@ interface CartContextType {
   ) => void;
   removeCartItem: (cartItemId: number) => void;
   cleanCart: () => void;
+  updateObservation: (cartItemId: number, observation: string) => void;
 }
 
 interface CartContextProviderProps {
@@ -110,6 +112,20 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems([]);
   }
 
+  function updateObservation(cartItemId: number, observation: string) {
+    const newCart = produce(cartItems, (draft) => {
+      const productExistsInCart = cartItems.findIndex(
+        (cartItem) => cartItem.id === cartItemId
+      );
+
+      if (productExistsInCart >= 0) {
+        draft[productExistsInCart].observation = observation;
+      }
+    });
+
+    setCartItems(newCart);
+  }
+
   useEffect(() => {
     localStorage.setItem(CART_ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
   }, [cartItems]);
@@ -124,6 +140,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         removeCartItem,
         cartItemsTotal,
         cleanCart,
+        updateObservation
       }}
     >
       {children}
