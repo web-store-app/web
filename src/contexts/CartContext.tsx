@@ -2,11 +2,7 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 import { produce } from "immer";
 import { Product } from "../shared/types/types";
 import useStore from "../hooks/useStore";
-
-export interface CartItem extends Product {
-  quantity: number;
-  observation?: string;
-}
+import { CartItem } from "../shared/types/CartItem";
 
 interface CartContextType {
   cartItems: CartItem[];
