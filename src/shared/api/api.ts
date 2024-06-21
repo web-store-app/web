@@ -64,3 +64,15 @@ export const getCategories= async (storeId: number) : Promise<Category[]> => {
         throw err;
     }
 }
+
+export const fetchAddress = async (zipCode:string) => {
+    if (zipCode?.length === 8) { 
+        try {
+            const response = await axios.get(`https://viacep.com.br/ws/${zipCode}/json/`);
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao buscar o CEP:', error);
+            throw error;
+        }
+    }
+};

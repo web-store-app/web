@@ -1,0 +1,10 @@
+.collapse-button {
+    background: none;
+    border: none;
+    
+    &:hover {
+        background-color: transparent !important; 
+        color: inherit !important;
+        border-color: transparent !important;
+      }
+}
