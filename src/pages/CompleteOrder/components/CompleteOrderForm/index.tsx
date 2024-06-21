@@ -8,11 +8,6 @@ import PersonalDataForm from "./PersonalDataForm";
 import "./scss/styles.scss"
 import { useFormContext } from "react-hook-form";
 
-interface CompleteOrderFormProps {
-    personalDataValid: boolean;
-    addressValid: boolean;
-}
-
 const CompleteOrderForm = () => {
     const { formState } = useFormContext();
     const [openPersonalData, setOpenPersonalData] = useState(true);
@@ -36,7 +31,7 @@ const CompleteOrderForm = () => {
         !formState.errors?.zipCode;
 
         if(!isPersonalDataValid && !openPersonalData)
-            togglePersonalData()
+            togglePersonalData();
 
         if(!isAddressValid && !openAddress)
             toggleAddress();
