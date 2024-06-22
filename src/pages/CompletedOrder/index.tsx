@@ -9,7 +9,6 @@ interface LocationType {
     state: OrderData;
 }
 
-
 export default function CompletedOrder() {
     const { state } = useLocation() as unknown as LocationType;
 
@@ -30,7 +29,7 @@ export default function CompletedOrder() {
     return (
         <div className="d-flex flex-column justify-content-center align-items-center">
             <h2 className='text-center m-3'>Pedido enviado</h2>
-            <p>Acompanhe o pedido e finalize o pagamento no whatsapp</p>
+            <p className="text-center">Acompanhe o pedido e finalize o pagamento no whatsapp</p>
             <div className="text-center mt-3">
                 <Button variant="success" className="d-flex align-items-center justify-content-center" onClick={handleOpenWhatsApp}>
                     <span>Abrir WhatsApp</span>
