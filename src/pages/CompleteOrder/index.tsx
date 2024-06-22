@@ -12,13 +12,12 @@ import OrderSumary from './components/OrderSumary';
 
 const validationSchema = zod.object({
     name: zod.string().min(1, 'Informe o Nome'),
-    address: zod.string().min(1, 'Informe o Endereço'),
     street: zod.string().min(1, 'Informe a Rua'),
     number: zod.string().min(1, 'Informe o Número'),
     city: zod.string().min(1, 'Informe a Cidade'),
     state: zod.string().min(1, 'Informe o Estado'),
     phone: zod.string().min(11, 'Informe o numero de telefone').refine((value) => {
-        const phoneRegex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
+        const phoneRegex = /^\(\d{2}\)\s\d{5}-\d{4}$/;
         return phoneRegex.test(value);
     }, {
         message: 'Número de telefone inválido'

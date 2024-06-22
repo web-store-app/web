@@ -26,6 +26,7 @@ const CustomMaskedInput = ({ name, mask, placeholder, control, errorMessage }: C
                             className={`form-control ${errorMessage ? 'is-invalid' : ''}`}
                             onChange={(e) => field.onChange(e.target.value)}
                             onBlur={field.onBlur}
+                            ref={(ref) => field.ref(ref ? ref.inputElement : null)}
                         />
                         {errorMessage && (
                             <Form.Control.Feedback type="invalid">
