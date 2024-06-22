@@ -1,8 +1,8 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Category, Store } from '../shared/types/types';
 import { getStore } from '../shared/api/api';
 import { getSubdomain } from '../utils/getSubdomain';
+import { useNavigate } from 'react-router-dom';
 
 interface StoreContextType {
   store: Store | null,
@@ -29,18 +29,27 @@ export function StoreContextProvider ({ children }: ContextProviderProps) {
   const [store, setStore] = useState<Store | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleNotFound = () =>{
+    navigate('/loja-nao-encontrada');
+  }
 
   useEffect(() => {
     const storeDomain = getSubdomain();
     getStore(storeDomain)
       .then((storeData: Store) => {
+        if(!storeData || !storeData.id)
+          handleNotFound();
+
         setStore(storeData);
         setCategories(storeData.categories);
       })
       .catch((error) => {
         console.error('Erro ao buscar a loja:', error);
+        handleNotFound();
       });
-  }, []);
+  }, [navigate]);
 
   const updateSearchTerm = (term: string) => {
     setSearchTerm(term);

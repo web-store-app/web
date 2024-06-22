@@ -6,6 +6,7 @@ import CompleteOrder from "./pages/CompleteOrder";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { CompleteOrderLayout } from "./layouts/CompleteOrderLayout";
 import CompletedOrder from "./pages/CompletedOrder";
+import NotFound from "./pages/NotFound";
 
 export default function Router() {
   return (
@@ -20,6 +21,7 @@ export default function Router() {
         <Route path="/finalizar-pedido" element={<CompleteOrder />} />
         <Route path="/pedido-finalizado" element={<CompletedOrder />} />
       </Route>
+      <Route path="/loja-nao-encontrada" element={<NotFound />}/>
     </Routes>
   );
 }
