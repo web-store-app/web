@@ -34,7 +34,7 @@ function ProductModal({ show, onClose, product }: ModalProps) {
 
   const handleAddAndPay = () => {
     addProductToCart({ ...product, quantity, observation });
-    navigate("/complete-order");
+    navigate("/finalizar-pedido");
   };
 
   const handleObservationChange = (newObservation:string) => {

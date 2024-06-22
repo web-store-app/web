@@ -5,7 +5,7 @@ import Offers from "./pages/Offers";
 import CompleteOrder from "./pages/CompleteOrder";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { CompleteOrderLayout } from "./layouts/CompleteOrderLayout";
-import FinishOrder from "./pages/FinishOrder";
+import CompletedOrder from "./pages/CompletedOrder";
 
 export default function Router() {
   return (
@@ -17,8 +17,8 @@ export default function Router() {
       </Route>
 
       <Route element={<CompleteOrderLayout />}>
-        <Route path="/complete-order" element={<CompleteOrder />} />
-        <Route path="/finish-order" element={<FinishOrder />} />
+        <Route path="/finalizar-pedido" element={<CompleteOrder />} />
+        <Route path="/pedido-finalizado" element={<CompletedOrder />} />
       </Route>
     </Routes>
   );

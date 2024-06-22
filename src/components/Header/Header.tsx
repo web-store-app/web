@@ -15,7 +15,7 @@ function Header() {
   const navigate = useNavigate();
   
   const handleGoToCart = () => {
-    navigate("/complete-order");
+    navigate("/finalizar-pedido");
   }
   
   return (

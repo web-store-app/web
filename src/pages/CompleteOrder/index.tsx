@@ -30,8 +30,8 @@ const validationSchema = zod.object({
     })
 });
 
-type OrderData = zod.infer<typeof validationSchema>;
-export type ConfirmOrderFormData = OrderData;
+export type OrderData = zod.infer<typeof validationSchema>;
+type ConfirmOrderFormData = OrderData;
 
 export default function CompleteOrder() {
     const { cartItems, cartItemsTotal, cleanCart } = useCart();
@@ -44,10 +44,9 @@ export default function CompleteOrder() {
     const { handleSubmit } = confirmOrderForm;
 
     function handleConfirmOrder(data: ConfirmOrderFormData) {
-        // navigate("/orderConfirmed", {
-        //     state: data,
-        // });
-        console.log(data);
+        navigate("/pedido-finalizado", {
+            state: data,
+        });
         cleanCart();
     }
 
