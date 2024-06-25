@@ -8,6 +8,7 @@ import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import CartItemsList from './components/CartCardItems';
 import OrderSumary from './components/OrderSumary';
+import { PaymentMethods } from '../../shared/types/enums';
 
 
 const validationSchema = zod.object({
@@ -27,7 +28,12 @@ const validationSchema = zod.object({
         return zipCodeRegex.test(value);
     }, {
         message: 'CEP inválido'
-    })
+    }),
+    paymentMethod: zod.nativeEnum(PaymentMethods, {
+        errorMap: () => {
+            return { message: "Selecione o método de pagamento" };
+        },
+    }),
 });
 
 export type OrderData = zod.infer<typeof validationSchema>;
@@ -47,6 +53,7 @@ export default function CompleteOrder() {
         navigate("/pedido-finalizado", {
             state: data,
         });
+        console.log(data);
         cleanCart();
     }
 

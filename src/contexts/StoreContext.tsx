@@ -3,6 +3,7 @@ import { Category, Store } from '../shared/types/types';
 import { getStore } from '../shared/api/api';
 import { getSubdomain } from '../utils/getSubdomain';
 import { useNavigate } from 'react-router-dom';
+import LoadingScreen from '../components/LoadingScreen';
 
 interface StoreContextType {
   store: Store | null,
@@ -29,6 +30,7 @@ export function StoreContextProvider ({ children }: ContextProviderProps) {
   const [store, setStore] = useState<Store | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const handleNotFound = () =>{
@@ -44,8 +46,10 @@ export function StoreContextProvider ({ children }: ContextProviderProps) {
 
         setStore(storeData);
         setCategories(storeData.categories);
+        setLoading(false);
       })
       .catch((error) => {
+        setLoading(false);
         console.error('Erro ao buscar a loja:', error);
         handleNotFound();
       });
@@ -54,6 +58,10 @@ export function StoreContextProvider ({ children }: ContextProviderProps) {
   const updateSearchTerm = (term: string) => {
     setSearchTerm(term);
   };
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <StoreContext.Provider value={{store, categories, searchTerm, updateSearchTerm}}>

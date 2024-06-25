@@ -2,7 +2,7 @@ import { formatMoney } from "../../../../utils/formatMoney";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import useCart from "../../../../hooks/useCart";
 import { QuantityInput } from "../../../../components/QuantityInput";
-import { CartItem } from "../../../../contexts/CartContext";
+import { CartItem } from "../../../../shared/types/CartItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 

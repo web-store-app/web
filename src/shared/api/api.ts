@@ -39,6 +39,7 @@ export const getProductByCategoryId = async (categoryId:number) : Promise<Produc
 export const getStore = async (subdomain: string | null) : Promise<Store> => {
     try
     {
+        // await new Promise(resolve => setTimeout(resolve, 10000));
         if(subdomain == null){
             return {} as Store;
         }
@@ -66,7 +67,7 @@ export const getCategories= async (storeId: number) : Promise<Category[]> => {
 }
 
 export const fetchAddress = async (zipCode:string) => {
-    if (zipCode?.length === 8) { 
+    if (zipCode?.length === 8) {
         try {
             const response = await axios.get(`https://viacep.com.br/ws/${zipCode}/json/`);
             return response.data;
