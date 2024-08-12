@@ -43,7 +43,7 @@ export const getStore = async (subdomain: string | null) : Promise<Store> => {
         if(subdomain == null){
             return {} as Store;
         }
-        const res = await httpClient.get<Store>(`store?subdomain=${subdomain}`)
+        const res = await httpClient.get<Store>(`store/GetBySubdomain/${subdomain}`)
         return res.data
     }
     catch(err)
